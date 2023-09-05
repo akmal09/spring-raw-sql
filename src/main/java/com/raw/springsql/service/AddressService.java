@@ -1,7 +1,9 @@
 package com.raw.springsql.service;
 
 import com.raw.springsql.entity.Address;
+import com.raw.springsql.entity.Transaksi;
 import com.raw.springsql.repository.AddressRepo;
+import com.raw.springsql.repository.TransaksiRepo;
 import com.raw.springsql.response.AddressResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,9 +19,14 @@ public class AddressService {
     @Autowired
     private ModelMapper mapper;
 
+//    @Autowired
+//    private TransaksiRepo transaksiRepo;
+
     public AddressResponse findAddressByEmployeeId(int employeeId){
         Optional<Address> addressByEmployeeId = addressRepo.findAddressByEmpoleeId(employeeId);
         AddressResponse addressResponse = mapper.map(addressByEmployeeId, AddressResponse.class);
         return addressResponse;
     }
+
+
 }
